@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import Post from "./components/Post";
-import { Container, Spinner } from "react-bootstrap";
+import { Spinner, Row, Col, Container } from "react-bootstrap";
 import axios from "axios";
 
 function App() {
@@ -49,17 +49,19 @@ function App() {
       if (posts.length === 0) {
         return <h4 className="mt-4">There is no posts</h4>;
       } else {
-        return posts.map((post) => <Post key={post._id} post={post} />);
+        return posts.map((post) => (
+          <Col md={6} lg={4} key={post._id}>
+            <Post post={post} />
+          </Col>
+        ));
       }
     } else {
       return (
-        <Container>
-          <Spinner
-            className="mt-4 d-block mx-auto"
-            animation="border"
-            role="status"
-          />
-        </Container>
+        <Spinner
+          className="mt-4 d-block mx-auto"
+          animation="border"
+          role="status"
+        />
       );
     }
   };
@@ -85,7 +87,7 @@ function App() {
   };
 
   return (
-    <div className="App mt-4">
+    <Container className="App mt-4">
       <button onClick={createPost} className="btn btn-secondary mx-2">
         Create post
       </button>
@@ -95,8 +97,8 @@ function App() {
       <button onClick={deletePosts} className="btn btn-danger mx-2">
         Delete all posts
       </button>
-      {renderPosts()}
-    </div>
+      <Row className="justify-content-center g-4 mt-4">{renderPosts()}</Row>
+    </Container>
   );
 }
 

@@ -26,8 +26,9 @@ router.post("/random", async (req, res) => {
       const newPost = new Post({
         name: `Post ${(Math.random() * 100).toFixed()}`,
         text: `${randomText(30)}`,
-        dateCreated: new Date(),
+        dateCreated: Date.now(),
       });
+      console.log(newPost);
       await newPost.save();
     } catch (err) {
       console.log(err);
@@ -42,7 +43,7 @@ router.post("/create", async (req, res) => {
     let newPost = new Post({
       name: name,
       text: text,
-      dateCreated: new Date(),
+      dateCreated: Date.now(),
     });
     await newPost.save();
     return res.json(newPost);
