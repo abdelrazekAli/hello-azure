@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "cd client/react-example && npm install && npm run build && cd ../.. && node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.4",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.6"
