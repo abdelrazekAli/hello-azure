@@ -46,7 +46,7 @@ function App() {
 
   const renderPosts = () => {
     if (posts) {
-      if (posts.length == 0) {
+      if (posts.length === 0) {
         return <h4 className="mt-4">There is no posts</h4>;
       } else {
         return posts.map((post) => <Post key={post._id} post={post} />);
