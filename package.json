@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd client/react-example && npm install && npm run build && cd ../.. && node server",
+    "start": "cd client/react-example && npm && npm run build && cd ../.. && node server",
     "test": "echo \"No test specified\""
   },
   "author": "",
