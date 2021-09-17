@@ -16,32 +16,22 @@ function App() {
       .catch((err) => console.log(err));
   });
 
+  const createPost = () => {
+    let name = prompt("Enter post name");
+    let text = prompt("Enter post text");
+    if (name && text) {
+      axios.post("api/posts/create", { name, text }).catch((err) => {
+        console.log(err);
+      });
+    }
+  };
+
   const RandomPosts = () => {
-    axios
-      .post("/api/posts/random", {})
-      .then(() => {
-        axios
-          .get("/api/posts")
-          .then((res) => {
-            setPosts(res.data);
-          })
-          .catch((err) => console.log(err));
-      })
-      .catch((err) => console.log(err));
+    axios.post("/api/posts/random", {}).catch((err) => console.log(err));
   };
 
   const deletePosts = () => {
-    axios
-      .delete("/api/posts/delete", {})
-      .then(() => {
-        axios
-          .get("/api/posts")
-          .then((res) => {
-            setPosts(res.data);
-          })
-          .catch((err) => console.log(err));
-      })
-      .catch((err) => console.log(err));
+    axios.delete("/api/posts/delete", {}).catch((err) => console.log(err));
   };
 
   const renderPosts = () => {
@@ -63,26 +53,6 @@ function App() {
           role="status"
         />
       );
-    }
-  };
-
-  const createPost = () => {
-    let name = prompt("Enter post name");
-    let text = prompt("Enter post text");
-    if (name && text) {
-      axios
-        .post("api/posts/create", { name, text })
-        .then(() => {
-          axios
-            .get("/api/posts")
-            .then((res) => {
-              setPosts(res.data);
-            })
-            .catch((err) => console.log(err));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
     }
   };
 

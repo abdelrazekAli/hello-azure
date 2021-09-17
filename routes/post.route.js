@@ -28,7 +28,6 @@ router.post("/random", async (req, res) => {
         text: `${randomText(30)}`,
         dateCreated: Date.now(),
       });
-      console.log(newPost);
       await newPost.save();
     } catch (err) {
       console.log(err);
