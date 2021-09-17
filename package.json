@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cd client/react-example && npm install && npm run build && cd ../.. && node server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No test specified\""
   },
   "author": "",
   "license": "ISC",
